@@ -1,0 +1,77 @@
+<!-- <template for:each={array} for:item="currentItem" for:index="index">
+Notes
+1> for:each always takes array as an input here you can't pass object 
+2> for:index is not manadetory. 
+3>currentItem is an alias it it can be any name.
+
+What is key? 
+1> A key is special string attribute you need to include to the first element inside the template 
+    when creatin a list of elements.
+2> Key helps the lwc engine identify which item have changed, are added or are removed.
+3> The best way to pick a key is to use a string that uniquly identifies a list item among its siblings.
+
+Note- Key must be number or string, it can't be an object 
+    You can't use the index as a value for the key.
+</template> -->
+
+<template>
+<lightning-card title="For:Each loop">
+    <div class="slds-var-m-around_medium">
+        <template for:each={carList} for:item="currentCar">
+            <ul key={currentCar} class="slds-has-dividers_around-space">
+                <li class="slds-item">{currentCar}</li>
+                </ul>
+        </template>
+    </div>
+</lightning-card>
+
+<lightning-card title="For:each loop for an array of an objcet.">
+    <div class="slds-var-m-around_medium">
+        <template for:each={ceoList} for:item="list">
+            <ul key={list.id} class="slds-has-dividers_around-space">
+                <li class="slds-item">{list.name} {list.company}</li>
+                </ul>
+                </template>
+            </div>
+</lightning-card>
+
+
+<!-- Note for Iterator
+To apply a special behaviour to the first or last item in a list we prefer iterator over for:each.
+
+Syntax
+<template iterator:iteratorName={array}> </template>
+
+Properties of an iterator
+using iterator name you can access the following properties 
+
+Value - Then value of the item in the list. Use this property to access the properties of the array.
+ ex:- iterator.value.propertyname
+
+Index - The index of the item in the list. Ex:- iteratorName.index 
+
+First - A boolean value indicating whether this item is the first item in the list. 
+ ex:- iteratorName.first
+
+Last - A boolean value indicating whether this item is the last item in the list. 
+  ex:- iteratorName.last -->
+<lightning-card title="Iterator Loop">
+<div class="slds-var-m-around_medium">
+    <template iterator:ceo={ceoList}>
+        <ul key={ceo.value.id} class="slds-has-dividers_around-space">
+            <template if:true={ceo.first}>
+                <div class="slds-box slds-theme_shade">
+                    List of the companies and there CEO's.
+                </div>
+            </template>
+            <li class="slds-item"><strong>{ceo.value.name}</strong> {ceo.value.company}</li>
+            <template if:true={ceo.last}>
+                <div class="slds-box slds-theme_shade">
+                    Thanks for reading the list.
+                </div>
+            </template>
+            </ul>
+    </template>
+    </div>
+</lightning-card>
+</template>

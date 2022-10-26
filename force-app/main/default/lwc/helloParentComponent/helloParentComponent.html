@@ -1,0 +1,13 @@
+<template>
+    <!-- Composition is Adding Component within the body of another component 
+    * Composition enables you to build complex components from simpler building-block components. -->
+
+    <!-- How to refer child component name in Parent components
+       childComponentDemo  <c-child-component-demo></c-child-component-demo>-->
+       <lightning-card title="Parent Component">
+        <div class="slds-var-m-around_medium">
+            <h1>Hello from parent component.</h1>
+            <c-hello-child-component></c-hello-child-component>
+        </div>
+       </lightning-card> 
+</template>

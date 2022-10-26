@@ -1,0 +1,28 @@
+<template>
+    <lightning-card  title="Two Way Data Binding.">
+         <!-- to comment a code in html shotcut is "ctrl + /"-->
+    <!-- <div>{fullname}</div> -->
+    <div class="slds-m-around_medium">
+    <lightning-input type="text" label="Enter the title of course." onkeyup={changeHandler}>
+    </lightning-input>
+    <div> {fullname} of the course is {title}.</div>
+</div>
+    </lightning-card>
+
+    <!-- Track Decorator example -->
+    <lightning-card title="@track properties.">
+        <div class="slds-m-around_medium">
+            <lightning-input type="text" label="Enter the name of City." onkeyup={trackHandler}>
+            </lightning-input>
+            <div>{address.city} is my city.</div>
+        </div>
+    </lightning-card>
+
+    <!-- Getter example -->
+    <lightning-card title = "Getter Demo">
+        <div class="slds-m-around_medium">
+            <div>FirstUser name is {firstUser}</div>
+            <div>Multiplication of {num1} and {num2} is {multiply}</div>
+        </div>
+    </lightning-card>
+</template>

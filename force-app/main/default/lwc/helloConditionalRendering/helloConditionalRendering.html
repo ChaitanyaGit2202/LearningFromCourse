@@ -1,0 +1,37 @@
+<!-- Directive are special html attributes. 
+The LWC programming model has few custom directives that let yoy manipulate the DOM using markup
+In LWC we have two special directives for conditional rendering 
+if:true
+if:false
+
+1> IF:TRUE 
+
+    User this directive to render DOM element in template, if the expression is true
+ syntax <template if:true{expression}>
+    a> the expression can be a Javascript identifier(property)
+    b> the expression can be a Javascript dot notation that accessess a property from an object(user. fullName)
+    c> You can't use the ternary operator inside the expression.
+    d> To compute the value of the expression, use the gette in the JS class.-->
+<template>
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand" label="Show Data" title="Show Data" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+            <template if:true={isVisible}>
+                <div>Welcome to Zero to Hero Series.</div>
+            </template>
+
+            <template if:false={isVisible}>
+               <div>You can't see the data. Please press the buttion to see the data.</div>
+            </template>
+
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Type hello to see the data" onkeyup={changeHandler}>
+                </lightning-input>
+            </div>
+          <template if:true={helloMethod}>
+            <div>Congragulation! You have entered the hello world as it is.</div>
+          </template>
+        </div>
+    </lightning-card>
+</template>
